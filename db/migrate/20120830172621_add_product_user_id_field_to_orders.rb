@@ -5,6 +5,6 @@ class AddProductUserIdFieldToOrders < ActiveRecord::Migration
   end
 
   def down
-    remove_column :spree_orders , :prduct_user_id
+    remove_column :spree_orders , :product_user_id
   end
 end
