@@ -16,9 +16,4 @@ Spree::Admin::ResourceController.class_eval do
     end
   end
 
-  def admin?
-    roles = current_user.spree_roles.map do |role| role.name end
-    roles.include?("admin")
-  end
-
 end
