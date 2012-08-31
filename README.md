@@ -1,21 +1,25 @@
-SpreeC2c
+Spree C2C
 ========
 
-Introduction goes here.
+CtoC extension for Spree.
 
 
 Example
 =======
 
-Example goes here.
+Gemfile
+    $ gem 'gem 'spree_c2c', :git => 'https://github.com/camelmasa/spree_c2c.git' 
+
+Command
+    $ rake spree_c2c:install:migrations
+    $ rake db:migrate
+    $ rake spree_c2c:load
+
+Good Luck!
 
 Testing
 -------
 
-Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
+Coding now.
 
-    $ bundle
-    $ bundle exec rake test_app
-    $ bundle exec rspec spec
-
-Copyright (c) 2012 [name of extension creator], released under the New BSD License
+Copyright (c) 2012 Masahiro Saito released under the New BSD License
