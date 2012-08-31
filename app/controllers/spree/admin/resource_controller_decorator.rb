@@ -1,9 +1,5 @@
 Spree::Admin::ResourceController.class_eval do
 
-  def c2c_create
-    @object.user_id = current_user.id
-  end
-
   def load_resource
     if member_action?
       @object ||= load_resource_instance

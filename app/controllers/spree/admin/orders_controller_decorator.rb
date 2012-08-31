@@ -37,6 +37,10 @@ Spree::Admin::OrdersController.class_eval do
     respond_with(@orders)
   end
 
+  def new
+    @order = Spree::Order.create(:product_user_id => current_user.id)
+    respond_with(@order)
+  end
 
 end
 
