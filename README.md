@@ -8,9 +8,11 @@ Example
 =======
 
 Gemfile
+
     $ gem 'gem 'spree_c2c', :git => 'https://github.com/camelmasa/spree_c2c.git' 
 
 Command
+
     $ rake spree_c2c:install:migrations
     $ rake db:migrate
     $ rake spree_c2c:load
