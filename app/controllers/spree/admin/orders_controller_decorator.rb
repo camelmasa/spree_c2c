@@ -26,8 +26,7 @@ Spree::Admin::OrdersController.class_eval do
     end
 
     object = Spree::Order
-    roles = current_user.spree_roles.map do |role| role.name end
-    object = object.where(:product_user_id => current_user.id) unless roles.include?("admin")
+    object = object.where(:product_user_id => current_user.id) unless admin?
     @search = object.ransack(params[:q])
     @orders = @search.result.includes([:user, :shipments, :payments]).page(params[:page]).per(Spree::Config[:orders_per_page])
 
