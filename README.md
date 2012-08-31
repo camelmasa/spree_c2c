@@ -9,7 +9,7 @@ Example
 
 Gemfile
 
-    $ gem 'gem 'spree_c2c', :git => 'https://github.com/camelmasa/spree_c2c.git' 
+    $ gem 'spree_c2c', :git => 'https://github.com/camelmasa/spree_c2c.git' 
 
 Command
 
