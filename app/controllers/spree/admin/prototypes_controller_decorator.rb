@@ -5,16 +5,14 @@ Spree::Admin::PrototypesController.class_eval do
     super
   end
 
-  def index
-    c2c_load_resource
-  end
-
   def new
     c2c_form
+    super
   end
 
   def edit
     c2c_form
+    super
   end
 
   def c2c_form

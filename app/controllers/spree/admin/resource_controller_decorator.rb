@@ -4,10 +4,10 @@ Spree::Admin::ResourceController.class_eval do
     @object.user_id = current_user.id
   end
 
-  def c2c_load_resource
+  def load_resource
     if member_action?
       @object ||= load_resource_instance
-      @object = @object.where(:user_id => current_user.id) unless admin?
+      return head(400) if !admin? && (@object.user_id != 0 && @object.user_id != current_user.id)
       instance_variable_set("@#{object_name}", @object)
     else
       @collection ||= collection

@@ -5,8 +5,4 @@ Spree::Admin::PropertiesController.class_eval do
     super
   end
 
-  def index
-    c2c_load_resource
-  end
-
 end
