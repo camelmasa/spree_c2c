@@ -1,5 +1,11 @@
 Spree::Admin::ResourceController.class_eval do
 
+  before_filter :variable_set_user_id, :only => [:create]
+
+  def variable_set_user_id
+    @object.user_id = current_user.id
+  end
+
   def load_resource
     if member_action?
       @object ||= load_resource_instance
