@@ -15,7 +15,6 @@ Deface::Override.new(:virtual_path => "spree/admin/prototypes/_form",
                                  </li>
                                <% end %>',
                      :disabled => false)
-
 Deface::Override.new(:virtual_path => "spree/admin/prototypes/_form", 
                      :name => "c2c_admin_prototype_form_fields", 
                      :replace_contents => "#option_types[data-hook]",
