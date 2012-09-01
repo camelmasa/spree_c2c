@@ -1,5 +1,5 @@
 Deface::Override.new(:virtual_path => "spree/admin/prototypes/_form", 
-                     :name => "user_admin_properties_form_fields", 
+                     :name => "c2c_admin_properties_form_fields", 
                      :replace_contents => "#properties[data-hook]",
                      :text => '<% @properties.each do |property| %>
                                  <% selected = if @prototype.new_record?
@@ -17,7 +17,7 @@ Deface::Override.new(:virtual_path => "spree/admin/prototypes/_form",
                      :disabled => false)
 
 Deface::Override.new(:virtual_path => "spree/admin/prototypes/_form", 
-                     :name => "user_admin_prototype_form_fields", 
+                     :name => "c2c_admin_prototype_form_fields", 
                      :replace_contents => "#option_types[data-hook]",
                      :text => '<% @option_types.each do |option_type| %>
                        <% selected = if @prototype.new_record?
