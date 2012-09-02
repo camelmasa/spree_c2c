@@ -44,7 +44,7 @@ Spree::Admin::OrdersController.class_eval do
 
   def load_order
     @order = Spree::Order.find_by_number!(params[:id], :include => :adjustments) if params[:id]
-    return head(400) if @order && !admin? && @order.product_user_id != current_user.id
+    return head(401) if @order && !admin? && @order.product_user_id != current_user.id
   end
 
 end
