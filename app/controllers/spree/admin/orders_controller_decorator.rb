@@ -26,7 +26,7 @@ Spree::Admin::OrdersController.class_eval do
     end
 
     object = Spree::Order
-    object = object.where(:product_user_id => current_user.id) unless admin?
+    object = object.where(:shop_user_id => current_user.id) unless admin?
     @search = object.ransack(params[:q])
     @orders = @search.result.includes([:user, :shipments, :payments]).page(params[:page]).per(Spree::Config[:orders_per_page])
 
@@ -38,13 +38,13 @@ Spree::Admin::OrdersController.class_eval do
   end
 
   def new
-    @order = Spree::Order.create(:product_user_id => current_user.id)
+    @order = Spree::Order.create(:shop_user_id => current_user.id)
     respond_with(@order)
   end
 
   def load_order
     @order = Spree::Order.find_by_number!(params[:id], :include => :adjustments) if params[:id]
-    return head(401) if @order && !admin? && @order.product_user_id != current_user.id
+    return head(401) if @order && !admin? && @order.shop_user_id != current_user.id
   end
 
 end

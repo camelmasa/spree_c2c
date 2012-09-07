@@ -19,12 +19,14 @@ class CreateShopOrders < ActiveRecord::Migration
       t.string   "payment_state"
       t.string   "email"
       t.text     "special_instructions"
-      t.integer  "product_user_id",                                                  :default => 0,   :null => false
+      t.integer  "shop_user_id",                                              :default => 0,   :null => false
+      t.integer  "order_id",                                                  :default => 0,   :null => false
     end
 
     add_index "spree_shop_orders", ["number"], :name => "index_spree_shop_orders_on_number"
     add_index "spree_shop_orders", ["user_id"], :name => "index_spree_shop_orders_on_user_id"
-    add_index "spree_shop_orders", ["product_user_id"], :name => "index_spree_shop_orders_on_product_user_id"
+    add_index "spree_shop_orders", ["shop_user_id"], :name => "index_spree_shop_orders_on_shop_user_id"
+    add_index "spree_shop_orders", ["order_id"], :name => "index_spree_shop_orders_on_order_id"
 
   end
 
