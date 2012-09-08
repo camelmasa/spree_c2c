@@ -6,7 +6,5 @@ module Spree
         :shipping_method_id, :email, :use_billing, :special_instructions, :shop_user_id,
         :item_total, :total, :state, :adjustment_total, :user_id, :completed_at, :bill_address_id, :ship_address_id, :payment_total, :shipment_state, :payment_state
 
-      belongs_to :order
-
   end
 end
