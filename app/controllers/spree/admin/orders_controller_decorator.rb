@@ -28,7 +28,7 @@ Spree::Admin::OrdersController.class_eval do
       params[:q][:completed_at_lt] = params[:q].delete(:created_at_lt)
     end
 
-    @search = admin? ? Spree::Order.ransack(params[:q]) : Spree::Order.joins(:shop_orders).where("spree_shop_orders.shop_user_id = #{current_user.id}").ransack(params[:q])
+    @search = admin? ? Spree::Order.joins(:shop_orders).ransack(params[:q]) : Spree::Order.joins(:shop_orders).where("spree_shop_orders.shop_user_id = #{current_user.id}").ransack(params[:q])
 
     @orders = @search.result(:distinct => true).includes([:user, :shipments, :payments]).page(params[:page]).per(Spree::Config[:orders_per_page])
 
@@ -45,7 +45,10 @@ Spree::Admin::OrdersController.class_eval do
   end
 
   def load_order
-    @order = Spree::Order.find_by_number!(params[:id], :include => :adjustments) if params[:id]
+    # TODO change number routes file? or, change number is unique key ?
+    @order = Spree::ShopOrder.find_by_number!(params[:id]) if params[:id]
+    p @order.shop_user_id
+    p current_user.id
     return head(401) if @order && !admin? && @order.shop_user_id != current_user.id
   end
 
