@@ -1,6 +1,10 @@
 Deface::Override.new(:virtual_path => "spree/layouts/admin",
                      :name => "promo_admin_tabs",
+                     :replace_contents => "",
+                     :text => '',
                      :disabled => true)
 Deface::Override.new(:virtual_path => "spree/layouts/admin",
                      :name => "user_admin_tabs",
+                     :replace_contents => "",
+                     :text => '',
                      :disabled => true)
